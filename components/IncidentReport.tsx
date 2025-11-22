@@ -45,6 +45,50 @@ export const IncidentReport: React.FC = () => {
             </div>
           </div>
 
+          {/* Photo Evidence Section */}
+          <div className="mb-8 border-4 border-black bg-gray-900 p-4 transform -rotate-1 relative shadow-lg">
+            {/* Evidence Stamps */}
+            <div className="absolute -top-3 -left-3 bg-censored text-white px-3 py-1 text-xs font-black uppercase tracking-wider z-10 border-2 border-black shadow-lg">
+              CLASSIFIED
+            </div>
+            <div className="absolute -top-3 -right-3 bg-yellow-500 text-black px-3 py-1 text-xs font-black uppercase tracking-wider z-10 border-2 border-black rotate-12 shadow-lg">
+              EVIDENCE
+            </div>
+            
+            {/* Photo Container */}
+            <div className="relative border-2 border-white bg-gray-800 p-2">
+              <img 
+                src="/assets/images/airforce-one-evidence.png" 
+                alt="Classified photo evidence from Air Force One incident showing piggy with taped snout" 
+                className="w-full h-auto border-2 border-gray-600 object-contain"
+                style={{ maxHeight: '500px', objectFit: 'contain' }}
+              />
+              
+              {/* Evidence Labels */}
+              <div className="absolute bottom-2 left-2 bg-black/90 text-white px-2 py-1 text-xs font-mono border border-white">
+                PHOTO #AF1-PIGGY-001
+              </div>
+              <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 text-xs font-bold uppercase border-2 border-white rotate-6">
+                ⚠ DO NOT REPRODUCE
+              </div>
+              
+              {/* Evidence Tape Effect */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-yellow-500 text-black px-4 py-1 text-xs font-black uppercase tracking-wider border-2 border-black rotate-[-5deg] shadow-md">
+                PHOTO EVIDENCE
+              </div>
+            </div>
+            
+            {/* Caption */}
+            <div className="mt-3 text-center border-t border-gray-700 pt-3">
+              <p className="font-mono text-xs text-gray-300 uppercase tracking-wide">
+                EXHIBIT A: Surveillance footage from Air Force One, 35,000 FT
+              </p>
+              <p className="font-mono text-xs text-gray-400 mt-1">
+                Subject identified. Classification: DECLASSIFIED | Ref: SOL-PIG-8821-EVIDENCE
+              </p>
+            </div>
+          </div>
+
           {/* Body Text */}
           <div className="font-serif text-lg leading-loose text-gray-800 space-y-6">
             <p>

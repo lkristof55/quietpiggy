@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
+import { Copy, Check } from 'lucide-react';
 import { TOKEN_DATA } from '../constants';
 
 const RADIAN = Math.PI / 180;
@@ -16,6 +17,22 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 };
 
 export const Tokenomics: React.FC = () => {
+  const [copied, setCopied] = useState(false);
+  
+  // Replace with your actual contract address
+  const contractAddress = '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU';
+  const shortAddress = `${contractAddress.slice(0, 4)}...${contractAddress.slice(-4)}`;
+  
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(contractAddress);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
   return (
     <section id="tokenomics" className="py-24 bg-presidential text-white relative">
       {/* Grid pattern overlay */}
@@ -29,7 +46,7 @@ export const Tokenomics: React.FC = () => {
           <p className="text-blue-100 font-mono text-sm tracking-widest">FINANCIAL DISCLOSURE FORM 1040-PIG</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Chart */}
           <div className="h-[400px] w-full bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 p-6 shadow-2xl">
             <ResponsiveContainer width="100%" height="100%">
@@ -57,7 +74,7 @@ export const Tokenomics: React.FC = () => {
             </ResponsiveContainer>
           </div>
 
-          {/* Stats */}
+          {/* Stats - All 4 boxes */}
           <div className="space-y-8">
              <div className="bg-white text-gray-900 p-6 shadow-[8px_8px_0px_0px_#000000] border-2 border-black transform hover:-translate-y-1 transition-transform">
                 <h3 className="font-bold text-xl mb-2 uppercase flex justify-between border-b-2 border-gray-200 pb-2">
@@ -81,6 +98,39 @@ export const Tokenomics: React.FC = () => {
                   <span className="font-mono text-gray-500">BURNED</span>
                 </h3>
                 <p className="text-gray-600 text-sm italic">"Unlike certain documents in the shredder, this is permanent."</p>
+             </div>
+
+             <div className="bg-white text-gray-900 p-6 shadow-[8px_8px_0px_0px_#000000] border-2 border-black transform hover:-translate-y-1 transition-transform">
+                <h3 className="font-bold text-xl mb-3 uppercase flex justify-between items-center border-b-2 border-gray-200 pb-2">
+                  <span>Contract Address</span>
+                  <button
+                    onClick={copyToClipboard}
+                    className="p-1.5 rounded hover:bg-gray-100 transition-colors flex items-center gap-1 text-xs font-normal normal-case"
+                    title={copied ? "Copied!" : "Copy to clipboard"}
+                  >
+                    {copied ? (
+                      <>
+                        <Check size={14} className="text-green-600" />
+                        <span className="text-green-600">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={14} />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </h3>
+                <div className="font-mono text-sm break-all mb-2">
+                  <span className="text-gray-700">{shortAddress}</span>
+                  <span 
+                    className="text-gray-400 hover:text-gray-900 cursor-help ml-2" 
+                    title={contractAddress}
+                  >
+                    (hover for full)
+                  </span>
+                </div>
+                <p className="text-gray-600 text-sm italic">"The only address you can trust. (Besides your wallet.)"</p>
              </div>
           </div>
         </div>

@@ -1,5 +1,23 @@
 import React from 'react';
-import { Twitter, Send, Github } from 'lucide-react';
+import { Twitter } from 'lucide-react';
+
+// PumpFun Icon Component - Pill/Capsule shape (outline style like Twitter)
+const PumpFunIcon: React.FC<{ size?: number }> = ({ size = 20 }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    {/* Capsule shape - ellipse with horizontal line dividing two halves */}
+    <ellipse cx="12" cy="12" rx="8" ry="6" />
+    <line x1="4" y1="12" x2="20" y2="12" />
+  </svg>
+);
 
 export const Footer: React.FC = () => {
   return (
@@ -14,14 +32,11 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="flex space-x-8 mb-8">
-          <a href="#" className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-presidential hover:text-white transition-all transform hover:-translate-y-1">
+          <a href="https://x.com/quietpiggyX" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-presidential hover:text-white transition-all transform hover:-translate-y-1">
             <Twitter size={20} />
           </a>
           <a href="#" className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-presidential hover:text-white transition-all transform hover:-translate-y-1">
-            <Send size={20} />
-          </a>
-          <a href="#" className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-presidential hover:text-white transition-all transform hover:-translate-y-1">
-            <Github size={20} />
+            <PumpFunIcon size={20} />
           </a>
         </div>
 
