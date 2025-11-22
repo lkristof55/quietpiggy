@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
           <a href="https://x.com/quietpiggyX" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-presidential hover:text-white transition-all transform hover:-translate-y-1">
             <Twitter size={20} />
           </a>
-          <a href="#" className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-presidential hover:text-white transition-all transform hover:-translate-y-1">
+          <a href="https://pump.fun/coin/5QkgEoE8B12Yi9Kbu2SUcDZczxj37Lmt54xBqRiFpump" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-presidential hover:text-white transition-all transform hover:-translate-y-1">
             <PumpFunIcon size={20} />
           </a>
         </div>

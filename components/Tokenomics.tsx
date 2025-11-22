@@ -20,7 +20,7 @@ export const Tokenomics: React.FC = () => {
   const [copied, setCopied] = useState(false);
   
   // Replace with your actual contract address
-  const contractAddress = '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU';
+  const contractAddress = '5QkgEoE8B12Yi9Kbu2SUcDZczxj37Lmt54xBqRiFpump';
   const shortAddress = `${contractAddress.slice(0, 4)}...${contractAddress.slice(-4)}`;
   
   const copyToClipboard = async () => {

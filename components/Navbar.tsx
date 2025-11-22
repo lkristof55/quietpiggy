@@ -9,8 +9,8 @@ const BuyPiggyButton: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
 
   const handleClick = () => {
     setConfetti(true);
-    // Add your buy functionality here
-    console.log('BUY $PIGGY clicked!');
+    // Open PumpFun link
+    window.open('https://pump.fun/coin/5QkgEoE8B12Yi9Kbu2SUcDZczxj37Lmt54xBqRiFpump', '_blank', 'noopener,noreferrer');
   };
 
   return (
