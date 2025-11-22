@@ -4,15 +4,24 @@ services:
     env: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: false
     headers:
-      - path: /*
-        name: X-Robots-Tag
-        value: noindex
-      - path: /*
-        name: Cache-Control
-        value: public, max-age=3600
+      - path: /*.js
+        name: Content-Type
+        value: application/javascript; charset=utf-8
+      - path: /*.css
+        name: Content-Type
+        value: text/css; charset=utf-8
+      - path: /*.png
+        name: Content-Type
+        value: image/png
+      - path: /assets/**/*
+        name: Content-Type
+        value: application/javascript; charset=utf-8
+      - path: /assets/images/**
+        name: Content-Type
+        value: image/png
     routes:
       - type: rewrite
         source: /*
         destination: /index.html
-
